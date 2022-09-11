@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-echo
-echo "INSTALLING SOFTWARE"
-echo
+# Colours
+RED=`tput bold && tput setaf 1`
+GREEN=`tput bold && tput setaf 2`
+YELLOW=`tput bold && tput setaf 3`
+BLUE=`tput bold && tput setaf 4`
+NC=`tput sgr0`
 
 # Testing if root...
 if [ $UID -ne 0 ]
@@ -11,33 +14,27 @@ then
 	exit
 fi
 
+echo
+BLUE "INSTALLING SOFTWARE"
+echo
+
 PKGS=(
 
     # TERMINAL UTILITIES -
 
     'curl'                  # Remote content retrieval
-    'gtop'                  # System monitoring via terminal
-    'numlockx'              # Turns on numlock in X11
     'openssh'               # SSH connectivity tools
     'speedtest-cli'         # Internet speed via terminal
     'unrar'                 # RAR compression program
     'unzip'                 # Zip compression program
     'wget'                  # Remote content retrieval
-    'zenity'                # Display graphical dialog boxes via shell scripts
     'zip'                   # Zip compression program
     'zsh'                   # ZSH shell
     'zsh-autosuggestions'   # Tab completion for ZSH
 
-    # NEW LINE BY MY FSTAB 
-    # /dev/sdb3 /home/worness/Arquivos_D/ ntfs-3g umask=000 0 0
-
     # GENERAL UTILITIES --
 
-    'catfish'               # Filesystem search
-    'conky'                 # System information viewer
-    'nemo'                  # Filesystem browser
     'veracrypt'             # Disc encryption utility
-    'variety'               # Wallpaper changer
     'xfburn'                # CD burning application
 
     # SOFTWARE
@@ -71,7 +68,6 @@ PKGS=(
 
     # WEB TOOLS
 
-    #'firefox'              # Web browser
     'filezilla'             # FTP Client
     'flashplugin'           # Flash
 
@@ -81,7 +77,6 @@ PKGS=(
     'simplescreenrecorder'  # Record your screen
     'vlc'                   # Video player
     'xfce4-screenshooter'   # Screen capture
-    'anki'                  # Card Study Method (English)
     'yt-dlp'		        # YTDLP
 
 
@@ -94,7 +89,6 @@ PKGS=(
     # PRODUCTIVITY
 
     'ffmpeg'                # Converter videos
-    'galculator'            # Gnome calculator
     'mousepad'              # XFCE simple text editor
     'xpdf'                  # PDF viewer
     'gnome-font-viewer'     # GUI install fonts
@@ -107,5 +101,5 @@ for PKG in "${PKGS[@]}"; do
 done
 
 echo
-echo "Done!"
+GREEN "Done!"
 echo
