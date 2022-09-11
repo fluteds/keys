@@ -1,1 +1,6 @@
 john_key.sh
+test.sh
+test.*
+*.old
+*backup
+backup.*
