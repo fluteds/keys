@@ -1,6 +1,6 @@
-john_key.sh
-test.sh
 test.*
 *.old
 *backup
 backup.*
+.DS_store
+/pass

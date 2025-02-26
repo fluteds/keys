@@ -1,0 +1,37 @@
+#  ———————————————————————————————————————————————————————————————————————————
+#  Tell Homebrew what to do when we run `brew bundle`
+#  ———————————————————————————————————————————————————————————————————————————
+
+# CLI tools
+brew "gh"
+brew "ffmpeg"
+brew "node"
+brew "python"
+brew "wget"
+brew "yt-dlp"
+brew "go"
+brew "java"
+brew "bat"
+
+# Necessities 
+cask "firefox@nightly"
+cask "visual-studio-code"
+cask "parsec"
+cask "mullvadvpn"
+cask "mtmr"
+cask "halloy" # IRC client
+
+# Audio/video
+cask "audio-hijack"
+cask "loopback"
+cask "handbrake"
+cask "obs"
+cask "vlc"
+cask "mpv"
+
+# Entertainment
+cask "discord"
+cask "spotify"
+cask "steam"
+cask "virtualdj"
+cask "crossover"
