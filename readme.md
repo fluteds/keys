@@ -3,50 +3,49 @@
 Configs for setting up machines. Arch and Ubuntu are usually for virtual machines that I can set up a fresh instance with everything I need for malware analysis on. 🐈
 
 - Arch Linux
-  - Software
 - Ubuntu Linux
-  - Software
 - MacOS
-  - Aliases
-    - Git, Misc and Dev of my most used or most forgotten commands
-  - Homebrew with Brewfile
-  - Git configs
-  - MTMR
-    - `$ brew install --cask mtmr`
-  - .zshrc
-  - skhd  - Windows tiling manager config
-  - yabai - Keybind deamon
-    <details>
-      <summary>Yabai Keybinds</summary>
+  - Dotfiles
 
-    ### Changing Focus
+| Category             | Software                                                      |
+|----------------------|---------------------------------------------------------------|
+| Shell Prompt         | [oh my zsh](https://ohmyz.sh/)                                |
+| Windows Manager      | [yabai](https://github.com/koekeishiya/yabai) + [skhd](https://github.com/koekeishiya/skhd) |
+| Touchbar             | [MTMR](https://github.com/Toxblh/MTMR)                        |
+| Status Bar           | [Sketchybar](https://github.com/felixhageloh/Sketchybar)      |
+| Colour Scheme        | [Rose Pine](https://rosepinetheme.com/)                       |
 
-    - Option + H / J / K / L: Move focus left, down, up, or right.
+<details>
+  <summary>Yabai Keybinds</summary>
 
-    ### Resizing Windows
+### Changing Focus
 
-    - Control + Option + H: Resize window left.
-    - Control + Option + J: Resize window down.
-    - Control + Option + K: Resize window up.
-    - Control + Option + L: Resize window right.
-    - Control + Option + E: Equalize window sizes.
+- Option + H / J / K / L: Move focus left, down, up, or right.
 
-    ### Moving Windows
+### Resizing Windows
 
-    - Shift + Option + H / J / K / L: Move window left, down, up, or right.
+- Control + Option + H: Resize window left.
+- Control + Option + J: Resize window down.
+- Control + Option + K: Resize window up.
+- Control + Option + L: Resize window right.
+- Control + Option + E: Equalize window sizes.
 
-    ### Moving Windows to Workspaces
+### Moving Windows
 
-    - Shift + Option + M: Send window to the last active desktop.
-    - Shift + Option + P: Send window to the previous workspace.
-    - Shift + Option + N: Send window to the next workspace.
-    - Shift + Option + 1-9: Send window to workspace 1 through 9.
+- Shift + Option + H / J / K / L: Move window left, down, up, or right.
 
-    ### Rotating Windows
+### Moving Windows to Workspaces
 
-    - Option + R: Rotate windows clockwise.
-    - Shift + Option + R: Rotate windows counterclockwise.
-    - Shift + Option + X: Flip windows on the x-axis.
-    - Shift + Option + Y: Flip windows on the y-axis.
+- Shift + Option + M: Send window to the last active desktop.
+- Shift + Option + P: Send window to the previous workspace.
+- Shift + Option + N: Send window to the next workspace.
+- Shift + Option + 1-9: Send window to workspace 1 through 9.
 
-    </details>
+### Rotating Windows
+
+- Option + R: Rotate windows clockwise.
+- Shift + Option + R: Rotate windows counterclockwise.
+- Shift + Option + X: Flip windows on the x-axis.
+- Shift + Option + Y: Flip windows on the y-axis.
+
+</details>

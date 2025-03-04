@@ -4,3 +4,4 @@ test.*
 backup.*
 .DS_store
 /pass
+*.env.sh
