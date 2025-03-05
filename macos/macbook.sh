@@ -76,7 +76,7 @@ echo "✅ Vencord installed"
 
 # Customize Terminal: download and install custom font
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CommitMono.zip
-mv CommitMono.zip ~/Downloads/CommitMono.zip 
+mv CommitMono.zip ~/Downloads/CommitMono.zip
 
 # Customize Terminal: ohmyzsh
 echo -e "\\n\\n💻 Customizing command line with ohmyzsh…"
@@ -109,9 +109,10 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custo
 echo "✅ Downloaded Spaceship prompt"
 
 # Starship: Download custom starship.toml configuration
-echo -e "\\n\\n💫 Downloading custom starship.toml configuration…"
-curl -fsSL https://gist.githubusercontent.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593/raw/1eebd888705a583de9252e6d45ca83b0ba733a5a/starship.toml -o ~/.config/starship.toml
-echo "✅ Starship configuration downloaded"
+# Here if I wanted to switch over to Starship
+echo -e "\\n\\n💫 Moving custom Starship configuration…"
+cp starship.toml -o ~/.config
+echo "✅ Starship configuration done"
 
 ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 echo "✅ Symlink for Spaceship prompt set"

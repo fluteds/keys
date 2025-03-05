@@ -1,22 +1,41 @@
 # Keys
 
-Configs for setting up machines. Arch and Ubuntu are usually for virtual machines that I can set up a fresh instance with everything I need for malware analysis on. 🐈
+Configs for setting up machines. Arch and Ubuntu are usually for virtual machines that I can set up a fresh instance with everything I need for malware analysis on.
 
-- Arch Linux
-- Ubuntu Linux
-- MacOS
-  - Dotfiles
+MacOS contains my Dotfiles and rices. 🐈
+
+## Contents
+
+### Arch Linux
+  
+- Setup script
+
+### Ubuntu
+
+- Setup script
+
+### MacOS
+
+One command install with `./macbook.sh`
 
 | Category             | Software                                                      |
 |----------------------|---------------------------------------------------------------|
-| Shell Prompt         | [oh my zsh](https://ohmyz.sh/)                                |
-| Windows Manager      | [yabai](https://github.com/koekeishiya/yabai) + [skhd](https://github.com/koekeishiya/skhd) |
+| Shell Prompt         | [oh my zsh](https://ohmyz.sh)                                |
+| Windows Manager      | [yabai](https://github.com/koekeishiya/yabai), borders + [skhd](https://github.com/koekeishiya/skhd) |
 | Touchbar             | [MTMR](https://github.com/Toxblh/MTMR)                        |
 | Status Bar           | [Sketchybar](https://github.com/felixhageloh/Sketchybar)      |
-| Colour Scheme        | [Rose Pine](https://rosepinetheme.com/)                       |
+| Colour Scheme        | [Rose Pine](https://rosepinetheme.com)                       |
+| IRC Client           | [Halloy](https://halloy.squidowl.org)                        |
+| Editor               | [Visual Studio Code](https://code.visualstudio.com)          |
+| Terminal             | iTerm2                                                       |
+
+![Screenshot of a MacOS riced theme in Rose Pine](/img/macos-rose-pine.png)
+![MacOS Touchbar](/img/macos-touchbar.png)
+
+### Keybinds
 
 <details>
-  <summary>Yabai Keybinds</summary>
+  <summary>Skhd keybinds for Yabai</summary>
 
 ### Changing Focus
 
