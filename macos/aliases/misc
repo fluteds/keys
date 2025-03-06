@@ -44,4 +44,3 @@ alias unzipit="unzip"  # Extract zip files
 
 alias peek="bat"  # Use bat (better cat) if installed
 alias cat="bat --paging=never"  # Replace cat with bat if available
-

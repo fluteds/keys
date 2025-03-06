@@ -188,6 +188,15 @@
     "align": "right"
   },
   
+  // spacer
+  {
+    "type": "titledButton",
+    "title": "",
+    "width": 8,
+    "align": "right",
+    "bordered": false
+  },
+
   // Brightness down
   { 
     "type": "brightnessDown", 
