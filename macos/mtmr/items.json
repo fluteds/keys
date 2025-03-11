@@ -10,6 +10,7 @@
     "refreshInterval": 500 // in seconds
   },
   
+/*
   // spacer
   {
     "type": "titledButton",
@@ -48,6 +49,8 @@
       "inline": "tell application \"Visual Studio Code\" to activate"
     }
   },
+*/
+
   
   // spacer
   {
@@ -71,6 +74,48 @@
     "bordered": false
   },
   
+  // Cuterdio
+  {
+  "type": "shellScriptTitledButton",
+  "refreshInterval": 10,
+  "align": "center",
+  "source": {
+    "inline": "echo -e $(cat ~/Library/Containers/de.suplanus.Cuterdio/Data/Library/Cuterdio/TrackInfo.txt)"
+  },
+  "actions": [
+    {
+      "trigger": "singleTap",
+      "action": "appleScript",
+      "actionAppleScript": {
+        "inline": "activate application \"Cuterdio\""
+      }
+    }
+  ],
+  "image": {
+      "filePath": "~/Library/Containers/de.suplanus.Cuterdio/Data/Library/Cuterdio/TrackInfo.png"
+  },
+  "bordered": false
+},
+
+  // FrogRadio
+  {
+    "type": "shellScriptTitledButton",
+    "bordered": false,
+    "refreshInterval": 1,
+    "source": {
+      "inline": "osascript ~/Library/Application\\ Support/MTMR/frogradio.scpt"
+    },
+    "actions": [
+      {
+        "trigger": "singleTap",
+        "action": "appleScript",
+        "actionAppleScript": {
+          "inline": "tell application \"FrogRadio\" to activate"
+        }
+      }
+    ]
+  },
+
   // Spotify
   {
     "type": "appleScriptTitledButton",
@@ -219,10 +264,13 @@
     "bordered": false
   }
   
+/*
   // Network speed
-  //{ 
-    //"type": "network", 
-    //"align": "right", 
-    //"bordered": false 
-  //}
+  { 
+    "type": "network", 
+    "align": "right", 
+    "bordered": false 
+  }
+*/
+
 ]
