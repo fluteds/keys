@@ -32,16 +32,15 @@ One command install with `./macbook.sh`
 ![Screenshot of a MacOS riced theme in Rose Pine](/img/macos-rose-pine.png)
 ![MacOS Touchbar](/img/macos-touchbar.png)
 
-### Keybinds
+## Keybinds
 
-<details>
-  <summary>Skhd keybinds for Yabai</summary>
+### Yabai
 
-### Changing Focus
+#### Changing Focus
 
 - Option + H / J / K / L: Move focus left, down, up, or right.
 
-### Resizing Windows
+#### Resizing Windows
 
 - Control + Option + H: Resize window left.
 - Control + Option + J: Resize window down.
@@ -49,22 +48,20 @@ One command install with `./macbook.sh`
 - Control + Option + L: Resize window right.
 - Control + Option + E: Equalize window sizes.
 
-### Moving Windows
+#### Moving Windows
 
 - Shift + Option + H / J / K / L: Move window left, down, up, or right.
 
-### Moving Windows to Workspaces
+#### Moving Windows to Workspaces
 
 - Shift + Option + M: Send window to the last active desktop.
 - Shift + Option + P: Send window to the previous workspace.
 - Shift + Option + N: Send window to the next workspace.
 - Shift + Option + 1-9: Send window to workspace 1 through 9.
 
-### Rotating Windows
+#### Rotating Windows
 
 - Option + R: Rotate windows clockwise.
 - Shift + Option + R: Rotate windows counterclockwise.
 - Shift + Option + X: Flip windows on the x-axis.
 - Shift + Option + Y: Flip windows on the y-axis.
-
-</details>

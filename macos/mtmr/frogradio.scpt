@@ -1,7 +1,11 @@
 tell application "System Events"
-	if not (exists process "FrogRadio") then
-		return "FrogRadio not running"
-	end if
+	try
+		if not (exists process "FrogRadio") then
+			return ""
+		end if
+	on error
+		return ""
+	end try
 	
 	tell process "FrogRadio"
 		try

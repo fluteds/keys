@@ -101,7 +101,7 @@
   {
     "type": "shellScriptTitledButton",
     "bordered": false,
-    "refreshInterval": 1,
+    "refreshInterval": 5,
     "source": {
       "inline": "osascript ~/Library/Application\\ Support/MTMR/frogradio.scpt"
     },
