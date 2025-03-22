@@ -12,8 +12,8 @@ size = 12
 
 [notifications]
 file_transfer_request = { sound = "dong", show_toast = true }
-direct_message = { exclude = ["NickServ", "HostServ", "ChanServ"], sound = "ring", show_toast = true }
-highlight = { exclude = ["NickServ", "HostServ", "ChanServ", "ticklesweasel"], sound = "dong", show_toast = true }
+direct_message = { exclude = ["NickServ", "HostServ", "ChanServ", "Global", "ticklesweasel", "Rizon", "OperServ"], sound = "ring", show_toast = true }
+highlight = { exclude = ["NickServ", "HostServ", "ChanServ", "Global", "ticklesweasel", "Rizon", "OperServ"], sound = "dong", show_toast = true }
 
 [sidebar]
 default_action = "replace-pane"
@@ -30,16 +30,17 @@ quit = { enabled = false, smart = 600, username_format = "short" }
 
 # TODO fix "connection to server failed (a TLS error occured: io error: tls handshake eof)"
 #[servers.anonops]
-#nickname = "<USERNAME>"
+#nickname = "<NICKNAME>"
 #server = "irc.anonops.com"
 #port = 6697
 #use_tls = true
+#dangerously_accept_invalid_certs = true
 #channels = ["#opnewblood"]
 #chathistory = true
 #reconnect_delay = 60
 
 [servers.cyberspace]
-nickname = "<USERNAME>"
+nickname = "<NICKNAME>"
 server = "colonq.computer"
 port = 26697
 use_tls = true
@@ -48,27 +49,27 @@ should_ghost = true
 chathistory = true
 reconnect_delay = 60
 
-[servers.foxwells]
-nickname = "<USERNAME>"
-server = "nuclear.foxwells.garden"
-port = 6697
-use_tls = true
-should_ghost = true
-chathistory = true
-reconnect_delay = 60
+#[servers.foxwells]
+#nickname = "<NICKNAME>"
+#server = "nuclear.foxwells.garden"
+#port = 6697
+#use_tls = true
+#should_ghost = true
+#chathistory = true
+#reconnect_delay = 60
 
-[servers.irchighway]
-nickname = "<USERNAME>"
-server = "irc.irchighway.net"
-port = 6697
-dangerously_accept_invalid_certs = true
-channels = ["#ebooks"]
-should_ghost = true
-reconnect_delay = 60
+#[servers.irchighway]
+#nickname = "<NICKNAME>"
+#server = "irc.irchighway.net"
+#port = 6697
+#dangerously_accept_invalid_certs = true
+#channels = ["#ebooks"]
+#should_ghost = true
+#reconnect_delay = 60
 
 [servers.liberachat]
-nickname = "<USERNAME>"
-nick_password_file = "/path/to/password/file/libera"
+nickname = "<NICKNAME>"
+nick_password_file = "<PATH_TO_PASSWORD_FILE>"
 server = "irc.libera.chat"
 port = 6697
 use_tls = true
@@ -77,20 +78,31 @@ should_ghost = true
 chathistory = true
 reconnect_delay = 60
 
+[servers.newnet]
+nickname = "<NICKNAME>"
+nick_password_file = "<PATH_TO_PASSWORD_FILE>"
+server = "irc.newnet.net"
+port = 6697
+use_tls = true
+channels = ["#club", "#meta"]
+should_ghost = true
+chathistory = true
+reconnect_delay = 60
+
 [servers.rizon]
-nickname     = "<USERNAME>"
-nick_password_file = "/path/to/password/file/rizon"
-server       = "irc.rizon.net"
-port         = 6697
-use_tls      = true
-channels = ["#r/a/dio", "#ComputerTech", "#/g/technology"]
+nickname = "<NICKNAME>"
+nick_password_file = "<PATH_TO_PASSWORD_FILE>"
+server = "irc.rizon.net"
+port = 6697
+use_tls = true
+channels = ["#r/a/dio", "#ComputerTech"]
 should_ghost = true
 chathistory = true
 reconnect_delay = 60
 
 [servers.social]
-nickname = "<USERNAME>"
-nick_password = "<password>"
+nickname = "<NICKNAME>"
+nick_password = "<PASSWORD>"
 server = "irc.social.lol"
 port = 6697
 use_tls = true
@@ -102,20 +114,20 @@ on_connect = [
 reconnect_delay = 60
 
 [servers.sdf]
-nickname = "<USERNAME>"
+nickname = "<NICKNAME>"
 server = "irc.sdf.org"
 port = 6697
 use_tls = true
 auth_method = "sasl"
-username = "<USERNAME>"
-nick_password_file = "/path/to/password/file/sdf"
+username = "<NICKNAME>"
+nick_password_file = "<PATH_TO_PASSWORD_FILE>"
 channels = ["#sdf"]
 should_ghost = true
 chathistory = true
 reconnect_delay = 60
 
 [servers.tildetown]
-nickname = "<USERNAME>"
+nickname = "<NICKNAME>"
 server = "localhost"
 port = 6667
 use_tls = false
@@ -125,8 +137,8 @@ reconnect_delay = 60
 should_ghost = true
 
 [servers.tildechat]
-nickname = "<USERNAME>"
-nick_password_file = "/path/to/password/file/tildechat"
+nickname = "<NICKNAME>"
+nick_password_file = "<PATH_TO_PASSWORD_FILE>"
 server = "irc.tilde.chat"
 channels = ["#meta"]
 port = 6697
@@ -136,8 +148,8 @@ should_ghost = true
 reconnect_delay = 60
 
 [servers.twitch]
-nickname = "<USERNAME>"
-password = "oauth:1234567890" # Twitch does not like it if you use a pass file
+nickname = "<NICKNAME>"
+password = "<TWITCH_OAUTH_PASSWORD>"
 server = "irc.chat.twitch.tv"
 port = 6697
 use_tls = true

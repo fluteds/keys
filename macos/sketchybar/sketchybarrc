@@ -1,6 +1,6 @@
 COLOR=0xFFd7827e
 
-sketchybar --bar height=34        \
+sketchybar --bar height=40        \
                  margin=0        \
                  y_offset=0       \
                  padding_left=0   \
@@ -10,7 +10,7 @@ sketchybar --bar height=34        \
 sketchybar --default updates=when_shown                             \
                      icon.font="CommitMono Nerd Font:Regular:12"  \
                      icon.color=0xFFFFFFFF                          \
-                     label.font="CommitMono Nerd Font:Regular:12" \
+                     label.font="Iosevka Comfy:Regular:12" \
                      background.color=0x00000000                    \
                      y_offset=0
 
@@ -33,10 +33,10 @@ done
 
 sketchybar --add item new_space left                        \
            --set      new_space icon.width=24              \
-                                label.padding_right=2       \
+                                label.padding_right=2      \
                                 icon.align=center           \
                                 icon.padding_right=2        \
-                                icon=+                      \
+                                icon=new                      \
                                 click_script='./scripts/new_space.sh'
 
 sketchybar --add bracket spaces '/space\..*/' new_space                \

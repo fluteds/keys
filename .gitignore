@@ -5,3 +5,4 @@ backup.*
 .DS_store
 /pass
 *.env.sh
+structure.txt

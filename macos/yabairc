@@ -7,10 +7,10 @@ set -x
 declare -A gaps
 declare -A color
 
-gaps["top"]="0"
-gaps["bottom"]="0"
-gaps["left"]="0"
-gaps["right"]="0"
+gaps["top"]="2"
+gaps["bottom"]="2"
+gaps["left"]="2"
+gaps["right"]="2"
 gaps["inner"]="3"
 
 color["focused"]="0xFFF6C177"
@@ -20,8 +20,8 @@ color["preselect"]="0xE02d74da"
 # ===== Loading Scripting Additions ============
 
 # See: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # ===== Tiling setting =========================
 
@@ -58,28 +58,32 @@ yabai -m config mouse_action2               resize
 
 # ===== Rules ==================================
 
-yabai -m rule --add app="^Activity Monitor$" manage=off
-yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Emacs$" manage=on
-yabai -m rule --add app="^Firefox$" manage=on
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-yabai -m rule --add app="^iTerm$" manage=on
-yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
-yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
-yabai -m rule --add app="^Microsoft Word$" manage=on
-yabai -m rule --add label="mpv" app="^mpv$" manage=off
-yabai -m rule --add label="Parsec" app="Parsec" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add label="Software Update" title="Software Update" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add label="Todoist" app="^Todoist$" manage=off
-yabai -m rule --add label="Sketchybar" app="^Sketchybar$" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
+yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="mpv" app="^mpv$" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Parsec" app="Parsec" manage=off
+yabai -m rule --add app="^Emacs$" manage=on
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off 
+yabai -m rule --add app="^Todoist$" manage=off
+yabai -m rule --add app="^java$" title=".*Minecraft.*" manage=off
+yabai -m rule --add app="^(Steam|Epic Games)$" manage=off
+yabai -m rule --add label="vlc" app="^vlc$" manage=off
 
 yabai -m config external_bar all:40:0
+
+# Starts borders process
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=3.0 &
 
 set +x
 printf "yabai: configuration loaded\\n"
