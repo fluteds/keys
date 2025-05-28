@@ -1,159 +1,77 @@
-COLOR=0xFFd7827e
+#---------------Colors && Icons---------------#
 
-sketchybar --bar height=40        \
-                 margin=0        \
-                 y_offset=0       \
-                 padding_left=0   \
-                 padding_right=0  \
-                 color=0x00000000
+source "$HOME/.config/colors.sh"
+source "$HOME/.config/icons.sh"
 
-sketchybar --default updates=when_shown                             \
-                     icon.font="CommitMono Nerd Font:Regular:12"  \
-                     icon.color=0xFFFFFFFF                          \
-                     label.font="Iosevka Comfy:Regular:12" \
-                     background.color=0x00000000                    \
-                     y_offset=0
+#---------------------------------------------#
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-SPACES=()
+#---------------Adding DIRs---------------#
 
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  SPACES+=(space.$sid)
-  sketchybar --add space space.$sid left \
-             --set space.$sid associated_space=$sid \
-                              icon=${SPACE_ICONS[i]} \
-                              icon.highlight_color=0xFFFFFFFF \
-                              icon.align=center \
-                              icon.width=30 \
-                              label.drawing=off \
-                              click_script="yabai -m space --focus $sid"
-done
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+ITEM_DIR="$HOME/.config/sketchybar/items/"
+SETTING_DIR="$HOME/.config/sketchybar/setting/"
 
-sketchybar --add item new_space left                        \
-           --set      new_space icon.width=24              \
-                                label.padding_right=3      \
-                                icon.align=center           \
-                                icon.padding_right=2        \
-                                icon=New                      \
-                                click_script='./scripts/new_space.sh'
+#------------------------------------------#
 
 
-sketchybar --add bracket spaces '/space\..*/' new_space                \
-           --set         spaces background.color=0xEB1e1e2e            \
-                                background.border_width=1              \
-                                background.border_color=$COLOR          \
-                                blur_radius=2                          \
-                                background.height=30
+#---------------Bar Appearance---------------#
 
-sketchybar --add item highlight_space left                      \
-           --set      highlight_space width=22                  \
-                                      background.color=$COLOR    \
-                                      background.height=22      \
-                                      script='scripts/highlight_space.sh'
+source "$SETTING_DIR/bar.sh"
 
-sketchybar --subscribe highlight_space space_change
+#---------------------------------------------#
 
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  SPACES+=(space.$sid)
-  sketchybar --add space space_ex.$sid left \
-             --set space_ex.$sid associated_space=$sid \
-                              icon=${SPACE_ICONS[i]} \
-                              icon.highlight_color=0xFFFFFFFF \
-                              icon.align=center \
-                              icon.width=30 \
-                              label.drawing=off \
-                              click_script="yabai -m space --focus $sid"
-done
+#---------------Changing Defaults---------------#
 
-sketchybar --set space_ex.1 padding_left=-999999
+source "$SETTING_DIR/defaults.sh"
 
-# Add Close Empty Spaces Button
-sketchybar --add item close_empty_spaces left \
-           --set close_empty_spaces \
-                                     icon.align=center \
-                                     icon.width=10 \
-                                     label="󰩺 󰟀" \
-                                     label.align=center \
-                                     label.padding_right=10 \
-                                     background.border_color=$COLOR \
-                                     background.border_width=1 \
-                                     background.padding_left=35 \
-                                     background.padding_right=18 \
-                                     background.height=30 \
-                                     background.width=auto \
-                                     click_script='scripts/close_empty_spaces.sh'
-
-sketchybar --default                                                \
-                     background.color=0xEB1e1e2e                    \
-                     blur_radius=2                                  \
-                     background.height=30                           \
-                     icon.padding_left=12                           \
-                     icon.padding_right=4                           \
-                     label.padding_left=4                           \
-                     label.padding_right=12                         \
-                     background.padding_left=18                     \
-                     background.border_width=1
+#-----------------------------------------------#
 
 
-sketchybar --add item spotify q                                  \
-           --set      spotify label.padding_left=12                 \
-                            icon=♫                                  \
-                            background.padding_left=0               \
-                            icon.padding_left=12                     \
-                            icon.padding_right=0                    \
-                            script='./scripts/spotify_info.sh'      \
-                            background.border_color=0x77ADADAD      \
-                            label.max_chars=54                      \
-                            update_freq=5                           \
-                            icon.color=$COLOR                      \
-                            background.border_color=$COLOR         \
+#---------------Adding Left Items---------------#
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/app_space.sh"
+source "$ITEM_DIR/chevron.sh"
+source "$ITEM_DIR/front_app.sh"
+# Add New Space button
+sketchybar --add item new_space_button left \
+           --set new_space_button \
+             icon=􀅼 \
+             click_script="$HOME/.config/sketchybar/plugins/new_space.sh" \
+             background.color=0x44ffffff \
+             background.corner_radius=5 \
+             background.height=20
 
-sketchybar --add item settings e                                  \
-           --set      settings                                      \
-                            icon=⛭                                  \
-                            label="Settings"                      \
-                            label.padding_left=0                    \
-                            icon.padding_right=10                    \
-                            background.padding_left=0               \
-                            click_script='./scripts/system_settings.sh'      \
-                            icon.color=$COLOR                    \
-                            background.border_color=$COLOR       \
+# Add Remove Space button
+sketchybar --add item remove_space_button left \
+           --set remove_space_button \
+             icon=􀅽 \
+             click_script="$HOME/.config/sketchybar/plugins/close_empty_spaces.sh" \
+             background.color=0x44ffffff \
+             background.corner_radius=5 \
+             background.height=20
 
-sketchybar --add item time right                                    \
-           --set      time icon=󱑎                                   \
-                           icon.color=$COLOR                       \
-                           background.border_color=$COLOR          \
-                           label="$(date '+%I:%M %p')"              \
-                           script='./scripts/time.sh'               \
-                           update_freq=1
+#source "$ITEM_DIR/window_title.sh"
+#-----------------------------------------------#
 
-sketchybar --add item date right                                    \
-           --set      date icon=󱨰                                   \
-                           icon.color=$COLOR                          \
-                           background.border_color=$COLOR             \
-                           label="$(date '+%a %b %d')"              \
-                           script='./scripts/date.sh'               \
-                           update_freq=10
 
-sketchybar --add item weather right                                 \
-           --set      weather icon=A                                \
-                              icon.color=$COLOR                      \
-                              background.border_color=$COLOR         \
-                              label="--°F"                          \
-                              script='./scripts/weather.sh'         \
-                              update_freq=120
+#---------------Adding Right Items---------------#
 
-sketchybar --add item battery right                                 \
-           --set      battery icon=                                \
-                              icon.color=$COLOR                    \
-                              background.border_color=$COLOR       \
-                              label="--%"                           \
-                              script='./scripts/battery.sh'         \
-                              update_freq=20
+ source "$ITEM_DIR/time.sh"
+ source "$ITEM_DIR/date.sh"
+ source "$ITEM_DIR/wifi.sh"
+ #source "$ITEM_DIR/control_center.sh"
+ source "$ITEM_DIR/battery.sh"
+ source "$ITEM_DIR/bluetooth.sh"
+ #source "$ITEM_DIR/keyboard.sh"
+ #source "$ITEM_DIR/backlight.sh"
+ source "$ITEM_DIR/volume.sh"
+#-------------------------------------------------#
 
-sketchybar --hotload on
+#---------------Adding Center Items--------------#
+source "$ITEM_DIR/music.sh"
+#------------------------------------------------#
+
+#---------------Finalizing Setup------------------#
+
 sketchybar --update
+
