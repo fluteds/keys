@@ -79,6 +79,8 @@ yabai -m rule --add app="^Todoist$" manage=off
 yabai -m rule --add app="^java$" title=".*Minecraft.*" manage=off
 yabai -m rule --add app="^(Steam|Epic Games)$" manage=off
 yabai -m rule --add label="vlc" app="^vlc$" manage=off
+yabai -m rule --add label="iPhone Mirroring" app="^iPhone Mirroring$" manage=off
+
 
 yabai -m config external_bar all:40:0
 

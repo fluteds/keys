@@ -33,11 +33,12 @@ done
 
 sketchybar --add item new_space left                        \
            --set      new_space icon.width=24              \
-                                label.padding_right=2      \
+                                label.padding_right=3      \
                                 icon.align=center           \
                                 icon.padding_right=2        \
-                                icon=new                      \
+                                icon=New                      \
                                 click_script='./scripts/new_space.sh'
+
 
 sketchybar --add bracket spaces '/space\..*/' new_space                \
            --set         spaces background.color=0xEB1e1e2e            \
@@ -50,7 +51,7 @@ sketchybar --add item highlight_space left                      \
            --set      highlight_space width=22                  \
                                       background.color=$COLOR    \
                                       background.height=22      \
-                                      script='./scripts/highlight_space.sh'
+                                      script='scripts/highlight_space.sh'
 
 sketchybar --subscribe highlight_space space_change
 
@@ -69,6 +70,22 @@ do
 done
 
 sketchybar --set space_ex.1 padding_left=-999999
+
+# Add Close Empty Spaces Button
+sketchybar --add item close_empty_spaces left \
+           --set close_empty_spaces \
+                                     icon.align=center \
+                                     icon.width=10 \
+                                     label="󰩺 󰟀" \
+                                     label.align=center \
+                                     label.padding_right=10 \
+                                     background.border_color=$COLOR \
+                                     background.border_width=1 \
+                                     background.padding_left=35 \
+                                     background.padding_right=18 \
+                                     background.height=30 \
+                                     background.width=auto \
+                                     click_script='scripts/close_empty_spaces.sh'
 
 sketchybar --default                                                \
                      background.color=0xEB1e1e2e                    \

@@ -8,6 +8,7 @@ scale_factor = 1.2
 theme = { light = "rose-pine-dawn", dark = "rose-pine" }
 
 [font]
+family = "Iosevka Comfy"
 size = 12
 
 [notifications]
@@ -16,7 +17,10 @@ direct_message = { exclude = ["NickServ", "HostServ", "ChanServ", "Global", "tic
 highlight = { exclude = ["NickServ", "HostServ", "ChanServ", "Global", "ticklesweasel", "Rizon", "OperServ"], sound = "dong", show_toast = true }
 
 [sidebar]
-default_action = "replace-pane"
+unread_indicator = "title"
+
+[actions.sidebar]
+buffer = "replace-pane"
 
 [file_transfer]
 save_directory = "$HOME/Downloads"

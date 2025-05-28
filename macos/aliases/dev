@@ -23,3 +23,9 @@ alias dstore="find . -name '.DS_Store' -type f -delete"
 
 # Edit /etc/hosts file
 alias edithosts="open /etc/hosts"
+
+# Python
+alias python="python3"
+alias pip="pip3"
+
+alias treenm='tree -I "node_modules|dist|.git"' # Runs tree but excludes node_modules, dist  and .git files
