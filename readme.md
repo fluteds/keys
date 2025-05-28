@@ -48,7 +48,7 @@ Sketchybar config inspired by this [Reddit](https://www.reddit.com/r/unixporn/co
 
 ### v1 - Rose Pine
 
-[`714b9b4`](https://github.com/fluteds/keys/tree/714b9b45851f29c8f04dac5815652190a45d71c9) - Last commit on v1.
+[`e446753`](https://github.com/fluteds/keys/tree/e44675302bc74b94b7e7c1af7066cfcaf1b8783e) - Last commit on v1.
 
 Sketchybar config inspired by [this rice](https://github.com/haydenrou/dotfiles).
 
