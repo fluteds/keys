@@ -52,7 +52,6 @@ case "$1" in
 	RESULT=$ICON_CLOCK
 	;;
 "Mail" | "Microsoft Outlook")
-  
 	RESULT=$ICON_MAIL
 	;;
 "Calendar")
@@ -67,8 +66,11 @@ case "$1" in
 "Voice Memos")
 	RESULT=$ICON_MICROPHONE
 	;;
-"Messages" | "Slack" | "Microsoft Teams" | "Discord" | "Telegram")
-	RESULT=$ICON_TELEGRAM
+"Messages" | "Slack" | "Microsoft Teams" | "Telegram" | "Halloy")
+	RESULT=$ICON_CHAT
+	;;
+"Discord" | "Vencord")
+	RESULT=$ICON_DISCORD
 	;;
 "FaceTime" | "zoom.us" | "Webex")
 	RESULT=$ICON_VIDEOCHAT
@@ -103,8 +105,11 @@ case "$1" in
 "SF Symbols")
 	RESULT=$ICON_ICON
 	;;
-"Xcode" | "Code" | "Neovide" | "IntelliJ IDEA")
+"Xcode" | "Neovide" | "IntelliJ IDEA")
 	RESULT=$ICON_DEV
+	;;
+"Code")
+	RESULT=$ICON_VSCODE
 	;;
 "Font Book" | "Dictionary")
 	RESULT=$ICON_BOOKINFO
@@ -121,7 +126,7 @@ case "$1" in
 "Passwords")
 	RESULT=$ICON_PASSKEY
 	;;
-"oblivion-desktop" | "Geph" | "Clash for Windows")
+"oblivion-desktop" | "Mullvad VPN" | "Geph" | "Clash for Windows")
 	RESULT=$ICON_VPN
 	;;
 "Progressive Downloaded" | "Transmission")
@@ -136,17 +141,20 @@ case "$1" in
 "Adobe Photoshop 2025")
 	RESULT=$ICON_PHOTOSHOP
 	;;
-"Folx" | "Free Download Manager")
+"Folx" | "Free Download Manager" | "JDownloader 2")
 	RESULT=$ICON_DOWNLOAD
 	;;
-"Firefox")
+"Firefox" | "Firefox Nightly")
 	RESULT=$ICON_FIREFOX
 	;;
-"Microsoft Remote Desktop" | "VMware Fusion" | "UTM")
+"Microsoft Remote Desktop" | "VMware Fusion" | "UTM" | "Parsec")
 	RESULT=$ICON_REMOTEDESKTOP
 	;;
 "Zen Browser")
   RESULT=$ICON_WEB
+  ;;
+"Prism Launcher" | "Minecraft")
+  RESULT=$ICON_MINECRAFT
   ;;
 *)
 	RESULT=$ICON_APP

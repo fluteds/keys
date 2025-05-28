@@ -1,4 +1,4 @@
-sketchybar --bar color=$COLOR_BL2 \
+sketchybar --bar color=$COLOR_BACKGROUND \
   height=30 \
   y_offset=4 \
   padding_left=4 \
@@ -6,4 +6,4 @@ sketchybar --bar color=$COLOR_BL2 \
   corner_radius=18 \
   topmost=off \
   margin=4 \
-  position=top
+  position=top \

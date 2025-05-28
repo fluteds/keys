@@ -1,8 +1,8 @@
-# E V E N T S
+# Events
 sketchybar -m --add event window_focus \
   --add event title_change
 
-# W I N D O W  T I T L E
+# Window Title
 title=(
   "${bracket_defaults[@]}"
   script="$PLUGIN_DIR/window_title.sh"
