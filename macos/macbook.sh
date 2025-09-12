@@ -117,7 +117,7 @@ echo "✅ Downloaded Spaceship prompt"
 
 # Starship: Download custom starship.toml configuration
 echo -e "\\n\\n💫 Moving custom Starship configuration…"
-cp starship.toml -o ~/.config
+cp starship.toml ~/.config/starship.toml
 echo "✅ Starship configuration done"
 
 # Spaceship: Install configuration
@@ -203,12 +203,12 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 echo "✅ Finder settings customized"
 
-# Dock: move to bottom of screen
-defaults write com.apple.dock orientation -string bottom
+# Dock: move to right of screen
+defaults write com.apple.dock orientation -string right
 # Dock: use "scale" app minimization effect
 defaults write com.apple.dock mineffect -string scale
 # Dock: make icons smaller
-defaults write com.apple.dock tilesize -integer 42
+defaults write com.apple.dock tilesize -integer 33
 # Dock: halve the show/hide animation time 
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 # Dock: remove delay to show/hide
