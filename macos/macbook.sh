@@ -18,12 +18,13 @@ sudo -v
 
 # Detect Mac architecture
 ARCH=$(uname -m)
+# Check if the machine is Apple Silicon (arm64) or Intel (x86_64)
 if [[ "$ARCH" == "arm64" ]]; then
-    echo "Detected Apple Silicon. Using /opt/homebrew."
-    export PATH="/opt/homebrew/bin:$PATH"
+    echo "🔍 Detected Apple Silicon. Using /opt/homebrew."
+    export PATH="/opt/homebrew/bin:$PATH"  # Set Homebrew path for Apple Silicon
 else
-    echo "Detected Intel Mac. Using /usr/local."
-    export PATH="/usr/local/bin:$PATH"
+    echo "🔍 Detected Intel Mac. Using /usr/local."
+    export PATH="/usr/local/bin:$PATH"  # Set Homebrew path for Intel Mac
 fi
 
 # Keep alive: update existing `sudo` timestamp until `.macos` has finished
@@ -77,6 +78,12 @@ echo "✅ Vencord installed"
 # Customize Terminal: download and install custom font
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CommitMono.zip
 mv CommitMono.zip ~/Downloads/CommitMono.zip
+unzip ~/Downloads/CommitMono.zip -d ~/Downloads/CommitMono
+mv ~/Downloads/CommitMono/*.otf ~/Library/Fonts/
+fc-cache -fv
+rm -rf ~/Downloads/CommitMono
+rm ~/Downloads/CommitMono.zip
+echo "✅ Custom fonts downloaded and installed"
 
 # Customize Terminal: ohmyzsh
 echo -e "\\n\\n💻 Customizing command line with ohmyzsh…"
@@ -109,35 +116,44 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custo
 echo "✅ Downloaded Spaceship prompt"
 
 # Starship: Download custom starship.toml configuration
-# Here if I wanted to switch over to Starship
 echo -e "\\n\\n💫 Moving custom Starship configuration…"
-cp starship.toml -o ~/.config
+cp starship.toml ~/.config/starship.toml
 echo "✅ Starship configuration done"
 
+# Spaceship: Install configuration
 ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 echo "✅ Symlink for Spaceship prompt set"
 
-echo -e "\\n\\n📂 Copying configs to their proper locations…"
-# Ensure skhd, yabai, and mtmr directories exist
-mkdir -p ~/.config/skhd ~/.config/yabai "~/Library/Application Support/MTMR"
+echo -e "\n\n📂 Copying configs to their proper locations…"
+# Ensure directories exist
+mkdir -p ~/.config
+mkdir -p ~/.config/skhd ~/.config/yabai ~/Library/Application\ Support/MTMR ~/.config/sketchybar ~/.config/iterm2
 
-# Copy and ensure proper permissions
-cp .zshrc ~/.zshrc && chmod 644 ~/.zshrc
-cp skhrc ~/.config/skhd/skhdrc && chmod 644 ~/.config/skhd/skhdrc
-cp yabairc ~/.config/yabai/yabairc && chmod 755 ~/.config/yabai/yabairc
-cp -r ./mtmr ~/Library/Application\ Support/MTMR
+# Backup existing configs before copying
+[ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.backup
+[ -f ~/.config/skhd/skhdrc ] && cp ~/.config/skhd/skhdrc ~/.config/skhd/skhdrc.backup
+[ -f ~/.config/yabai/yabairc ] && cp ~/.config/yabai/yabairc ~/.config/yabai/yabairc.backup
+
+# Copy and set proper permissions
+cp .zshrc ~/.zshrc && chmod 644 ~/.zshrc && echo "✅ .zshrc copied"
+cp skhdrc ~/.config/skhd/skhdrc && chmod 644 ~/.config/skhd/skhdrc && echo "✅ skhdrc copied"
+cp yabairc ~/.config/yabai/yabairc && chmod 755 ~/.config/yabai/yabairc && echo "✅ yabairc copied"
+cp -r mtmr ~/Library/Application\ Support/MTMR && echo "✅ MTMR copied"
+cp -r sketchybar ~/.config/sketchybar && echo "✅ sketchybar copied"
+cp -r iterm2 ~/.config/iterm2 && echo "✅ iterm2 copied"
+echo -e "✅ Configs successfully copied!"
 
 # Reload configurations
 echo -e "\\n🔄 Reloading configurations…"
-source ~/.zshrc
 pkill -USR1 skhd && echo "✅ skhd config reloaded"
 yabai --restart-service && echo "✅ yabai service restarted"
-echo -e "\\n✅ Skhd and Yabai setup complete"
+sketchybar --reload && echo "✅ SketchyBar reloaded"
+echo -e "\\n✅ Skhd, Sketchtbar and Yabai setup complete"
 
 # Git Configuration
 echo -e "\\n📂 Setting up Git configuration…"
-cp git/.gitconfig ~/.gitconfig && chmod 644 ~/.gitconfig
-cp git/.gitignore ~/.gitignore && chmod 644 ~/.gitignore
+cp macos/git/.gitconfig ~/.gitconfig && chmod 644 ~/.gitconfig
+cp macos/git/.gitignore ~/.gitignore && chmod 644 ~/.gitignore
 
 # Set global Git ignore file
 git config --global core.excludesfile ~/.gitignore
@@ -151,17 +167,14 @@ echo "=================================================="
 # Trackpad: Enable tap-to-click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
 # Trackpad: Enable "natural" scroll
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 echo "✅ Trackpad settings customized"
 
 # Keyboard: Disable smart quotes
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
 # Keyboard: Disable double space for period
 defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
-
 # Keyboard: Disable smart emojis eg <3 to ❤️
 defaults write -g NSAutomaticEmojiSubstitutionEnabled -bool false
 echo "✅ Keyboard settings customized"
@@ -172,54 +185,41 @@ echo "✅ Behavior settings customized"
 
 # Finder: Always show hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
-
 # Finder: Use list view in all Finder windows by default
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
 # Finder: Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
-
 # Finder: Expand save dialog by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-
 # Finder: Show the ~/Library folder in Finder window
 chflags nohidden ~/Library
-
 # Finder: Show Path bar in Finder window
 defaults write com.apple.finder ShowPathbar -bool true
-
 # Finder: Show Status bar in Finder window
 defaults write com.apple.finder ShowStatusBar -bool true
-
 # Finder: Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
 # Finder: When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 echo "✅ Finder settings customized"
 
-# Dock: move to bottom of screen
-defaults write com.apple.dock orientation -string bottom
-
+# Dock: move to right of screen
+defaults write com.apple.dock orientation -string right
 # Dock: use "scale" app minimization effect
 defaults write com.apple.dock mineffect -string scale
-
 # Dock: make icons smaller
-defaults write com.apple.dock tilesize -integer 42
-
+defaults write com.apple.dock tilesize -integer 33
 # Dock: halve the show/hide animation time 
 defaults write com.apple.dock autohide-time-modifier -float 0.5
-
 # Dock: remove delay to show/hide
 defaults write com.apple.dock autohide-delay -float 0
 
 # Dock: Show only active applications
-# defaults write com.apple.dock static-only -bool true
-echo "✅ Dock settings customized"
+#defaults write com.apple.dock static-only -bool true
+#echo "✅ Dock settings customized"
 
 # Desktop: Show removable media CDs, DVDs etc
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
-
 # Desktop: Show external drives, USBs etc
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 echo "✅ Desktop settings customized"

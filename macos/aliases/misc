@@ -42,6 +42,19 @@ alias bigfiles="find . -type f -size +100M -exec ls -lh {} \; | awk '{print $9, 
 alias zipit="zip -r"  # Compress a folder: zipit archive.zip folder/
 alias unzipit="unzip"  # Extract zip files
 
+# 📖 File viewing commands
 alias peek="bat"  # Use bat (better cat) if installed
 alias cat="bat --paging=never"  # Replace cat with bat if available
 
+# 📋 Todo.txt-cli commands
+alias todo="todo.sh" # todo.sh to todo
+alias t="todo.sh"  # Alias for todo.sh
+alias tl="todo.sh list"  # List all todo items
+alias ta="todo.sh add"  # Add a new todo item
+alias td="todo.sh done"  # Mark a todo item as done
+
+# 🌤️ Weather command
+alias weather="wthrr && wthrr -f t"
+
+# 🎛️ Open Activity Monitor app
+alias task="open -a 'Activity Monitor'"  

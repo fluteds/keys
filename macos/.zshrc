@@ -1,7 +1,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 
 export ZSH="$HOME/.oh-my-zsh"
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell" # Use a ZSH theme
 
 plugins=(git)
 
@@ -27,9 +27,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+# Set code as default editor
 export EDITOR="code --wait"
+
+# Export scripts to path
 export PATH="$HOME/scripts:$PATH"
 export PATH="$PATH:/Users/autumn/.local/bin"
+
+ # Decode base64
+ b64() {
+  echo "$1" | base64 --decode | tee >(pbcopy 2>/dev/null || xclip -sele
+  ction clipboard 2>/dev/null || wl-copy 2>/dev/null)
+}
 
 # Get a random Pokemon
 pokeget random
