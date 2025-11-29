@@ -104,7 +104,7 @@ case "$1" in
 	"Reminders" | "sleek")
 		RESULT=$ICON_LIST
 		;;
-	"Notes" | "TextEdit" | "Stickies" | "Microsoft Word" | "Zettlr")
+	"Notes" | "TextEdit" | "Stickies" | "Microsoft Word" | "Zettlr" | "Obsidian")
 		RESULT=$ICON_NOTE
 		;;
 	"Calculator" | "Numi")
