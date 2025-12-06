@@ -1,4 +1,5 @@
 [
+  /*
   // Display motivator
   {
 		"type": "shellScriptTitledButton",
@@ -9,6 +10,23 @@
     },
     "refreshInterval": 500 // in seconds
   },
+  */
+  
+  /*{
+  "type": "appleScriptTitledButton",
+  "align": "left",
+  "bordered": false,
+  "autoResize": false,
+  "source": {
+    "inline": "tell application \"Calendar\"\n\tset today to current date\n\tset futureDate to today + (1 * days)\n\tset upcomingEvents to every event of calendar 1 whose start date is greater than or equal to today and start date is less than or equal to futureDate\n\tif upcomingEvents is {} then\n\t\treturn \"\"\n\telse\n\t\tset firstEvent to item 1 of upcomingEvents\n\t\tset eventTitle to summary of firstEvent\n\t\tset remainingTime to ((start date of firstEvent) - (current date)) div hours\n\t\treturn \"📅 in \" & remainingTime & \"H\"\n\tend if\nend tell"
+  },
+  "refreshInterval": 3600,  // in seconds
+  "longAction": "appleScript",
+  "longActionAppleScript": {
+    "inline": "activate application \"Calendar\""
+  }
+},
+/*
   
 /*
   // spacer
@@ -18,7 +36,7 @@
     "width": 8,
     "bordered": false
   },
-
+/*
   {
     "type": "staticButton",
     "title": "🎧 ",
@@ -130,6 +148,7 @@
     
   },
 
+  /*
   {
     // Use with ./radio.sh
     "type": "appleScriptTitledButton",
@@ -139,6 +158,7 @@
       "inline": "try\n  do shell script \"cat /Users/autumn/mtmr_nowplaying.txt\"\n  on error\n  return \"\"\nend try"
     }
   },
+  */
 
   // Weather
   {
@@ -272,5 +292,3 @@
     "bordered": false 
   }
 */
-
-]
