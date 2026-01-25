@@ -50,6 +50,8 @@ cask "libreoffice"
 cask "qbittorrent"
 cask "fx-cast-bridge"
 cask "wine-stable"
+cask "obsidian"
+cask "home-assistant"
 
 # Audio/video
 cask "audio-hijack"
